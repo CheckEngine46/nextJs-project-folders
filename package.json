@@ -1,0 +1,24 @@
+{
+  "name": "next-struct",
+  "version": "1.0.0",
+  "description": "Package for creating nextJs folders structure",
+  "type": "module",
+  "main": "./bin/index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": {
+    "next-struct": "./bin/index.js"
+  },
+  "files": [
+    "lib/",
+    "bin/"
+  ],
+  "keywords": [],
+  "author": "Kir O.",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "preferGlobal": true
+}
