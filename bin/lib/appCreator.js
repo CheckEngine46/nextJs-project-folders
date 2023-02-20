@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import { appScss, _variablesScss, _base } from './data.js';
 
-const createApi = async () => {
+const createApi = () => {
   return new Promise((res, rej) => {
     fs.mkdir('app/api', async (err) => {
       if (err) {
@@ -16,7 +16,7 @@ const createApi = async () => {
   });
 };
 
-const createUtils = async () => {
+const createUtils = () => {
   return new Promise((res, rej) => {
     fs.mkdir('app/utils', async (err) => {
       if (err) {
@@ -30,7 +30,7 @@ const createUtils = async () => {
   });
 };
 
-const createContext = async () => {
+const createContext = () => {
   return new Promise((res, rej) => {
     fs.mkdir('app/context', async (err) => {
       if (err) {
@@ -44,7 +44,7 @@ const createContext = async () => {
   });
 };
 
-const createHooks = async () => {
+const createHooks = () => {
   return new Promise((res, rej) => {
     fs.mkdir('app/hooks', async (err) => {
       if (err) {
@@ -58,7 +58,7 @@ const createHooks = async () => {
   });
 };
 
-const createConstants = async () => {
+const createConstants = () => {
   return new Promise((res, rej) => {
     fs.mkdir('app/constants', async (err) => {
       if (err) {
@@ -72,7 +72,7 @@ const createConstants = async () => {
   });
 };
 
-const createStyles = async () => {
+const createStyles = () => {
   return Promise.all([
     new Promise((res, rej) => {
       fs.mkdir('app/styles', async (err) => {
@@ -219,10 +219,62 @@ const createTypes = () => {
   ]);
 };
 
+const createComponents = () => {
+  return Promise.all([
+    new Promise((res, rej) => {
+      fs.mkdir('app/components', async (err) => {
+        if (err) {
+          console.log('ERROR create app/components folder', err);
+          rej('ERROR create app/components folder');
+        } else {
+          console.log('---created app/components');
+          res();
+        }
+      });
+    }),
+
+    new Promise((res, rej) => {
+      fs.mkdir('app/components/elements', async (err) => {
+        if (err) {
+          console.log('ERROR create app/components/elements folder', err);
+          rej('ERROR create app/components/elements folder');
+        } else {
+          console.log('---created app/components/elements');
+          res();
+        }
+      });
+    }),
+
+    new Promise((res, rej) => {
+      fs.mkdir('app/components/layouts', async (err) => {
+        if (err) {
+          console.log('ERROR create app/components/layouts folder', err);
+          rej('ERROR create app/components/layouts folder');
+        } else {
+          console.log('---created app/components/layouts');
+          res();
+        }
+      });
+    }),
+
+    new Promise((res, rej) => {
+      fs.mkdir('app/components/modules', async (err) => {
+        if (err) {
+          console.log('ERROR create app/components/modules folder', err);
+          rej('ERROR create app/components/modules folder');
+        } else {
+          console.log('---created app/components/modules');
+          res();
+        }
+      });
+    }),
+  ]);
+};
+
 const createAppContent = async () => {
   try {
     await createApi();
-    // await createComponents();
+    await createComponents();
     await createConstants();
     await createContext();
     await createHooks();
