@@ -47,7 +47,8 @@ const createEnvs = () => {
 export const topLevelFiles = async () => {
   try {
     await createGitIgnore();
-    await createEnvs();
+    // ? env files are not needed in nextJS app. it has its own env
+    //await createEnvs();
   } catch (e) {
     console.log('topLevelFiles', e);
     throw e;
